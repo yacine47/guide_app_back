@@ -70,3 +70,10 @@ def update_user(request):
     user.save()
     serializer = UserSerializer(user,many=False)
     return Response(serializer.data)
+
+
+@api_view(['GET'])
+def get_all_users(request):
+    users = User.objects.all()
+    serializer = UserSerializer(users,many=True)
+    return Response(serializer.data)

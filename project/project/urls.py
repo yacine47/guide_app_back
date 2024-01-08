@@ -26,7 +26,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/',include('account.urls')),
     path('api/token/',TokenObtainPairView.as_view()),
+    path('api/',include('place.urls')),
+    path('api/',include('state.urls')),
+    path('api/',include('review.urls')),
+    path('api/',include('favorite.urls')),
 ]
 
 if settings.DEBUG:
     urlpatterns +=  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+    
